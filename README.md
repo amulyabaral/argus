@@ -1,4 +1,4 @@
-# PanRes2 Gene Highlighter
+# ARGus
 
 Browser extension for highlighting antimicrobial resistance (AMR) genes on web pages using the PanRes2 unified database.
 
