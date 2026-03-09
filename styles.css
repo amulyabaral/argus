@@ -1,0 +1,319 @@
+/* PanRes2 Gene Highlighter - Minimal Design System */
+
+/* Import Roboto font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --bg: #FFFFFF;
+  --fg: #000000;
+  --border: #333333;
+  --border-hover: #000000;
+}
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a1a;
+    --fg: #e0e0e0;
+    --border: #666666;
+    --border-hover: #ffffff;
+  }
+
+  .gene-modal {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+  }
+
+  .gene-modal-header h2 {
+    color: #e0e0e0;
+  }
+
+  .gene-tooltip {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+  }
+
+  .database-group-header {
+    background-color: #e0e0e0;
+    color: #1a1a1a;
+  }
+
+  .database-gene-item.current-gene {
+    border-left-color: #e0e0e0;
+  }
+
+  .database-gene-name {
+    color: #e0e0e0;
+  }
+
+  .gene-detail-label,
+  .gene-detail-value {
+    color: #e0e0e0;
+  }
+
+  .gene-prop-label,
+  .gene-prop-value {
+    color: #e0e0e0;
+  }
+}
+
+/* Gene highlight - clickable, has border */
+.gene-highlight {
+  background-color: transparent;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  padding: 1px 3px;
+  transition: border-color 200ms;
+}
+
+/* Tooltip */
+.gene-tooltip {
+  position: absolute;
+  background-color: var(--bg);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  padding: 6px;
+  font-size: 14px;
+  max-width: 400px;
+  z-index: 999999;
+  pointer-events: none;
+  line-height: 1.4;
+}
+
+.gene-tooltip em {
+  font-style: italic;
+  color: var(--fg);
+}
+
+/* Modal overlay */
+.gene-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000000;
+}
+
+.gene-modal {
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  max-width: 700px;
+  width: 90%;
+  max-height: 85vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Modal header */
+.gene-modal-header {
+  padding: 10px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.gene-modal-title-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.argus-branding {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.argus-text,
+.gene-modal-header h2 {
+  font-weight: bold;
+  color: var(--fg);
+}
+
+.argus-text {
+  font-size: 16px;
+}
+
+.argus-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.gene-modal-header h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.gene-modal-close {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--fg);
+  font-size: 18px;
+  cursor: pointer;
+  padding: 2px 6px;
+  transition: border-color 200ms;
+}
+
+.gene-modal-close:hover,
+.gene-highlight:hover {
+  border-color: var(--border-hover);
+}
+
+/* Modal content */
+.gene-modal-content {
+  padding: 10px;
+  overflow-y: auto;
+  flex: 1;
+  font-size: 14px;
+}
+
+.gene-modal-content h3,
+.database-group-header,
+.gene-prop-label,
+.database-gene-name,
+.gene-detail-label {
+  font-weight: bold;
+}
+
+.gene-modal-content h3 {
+  margin: 8px 0 6px 0;
+  font-size: 16px;
+  color: var(--fg);
+}
+
+/* Type badge */
+.gene-type-badge {
+  display: inline-block;
+  border: 1px solid var(--border);
+  color: var(--fg);
+  padding: 3px 6px;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+/* Properties section */
+.gene-properties {
+  border: 1px solid var(--border);
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.gene-prop-item {
+  margin: 4px 0;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.gene-prop-item:last-child {
+  border-bottom: none;
+}
+
+.gene-prop-label {
+  margin-bottom: 2px;
+}
+
+.gene-prop-header {
+  font-size: 12px;
+  word-break: break-all;
+  border-left: 2px solid var(--border);
+  padding-left: 6px;
+  color: var(--fg);
+}
+
+/* Database groups */
+.database-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.database-group {
+  border: 1px solid var(--border);
+}
+
+.database-group-header {
+  background-color: var(--fg);
+  color: var(--bg);
+  padding: 6px 8px;
+  font-size: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.database-genes {
+  padding: 0;
+}
+
+.database-gene-item {
+  padding: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.database-gene-item:last-child {
+  border-bottom: none;
+}
+
+.database-gene-item.current-gene {
+  border-left: 3px solid var(--fg);
+  padding-left: 5px;
+}
+
+.database-gene-name {
+  font-size: 15px;
+  margin-bottom: 4px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border);
+}
+
+.gene-detail-items {
+  display: grid;
+  gap: 4px;
+  padding-left: 6px;
+}
+
+.gene-detail-item {
+  font-size: 13px;
+}
+
+.gene-detail-label {
+  margin-bottom: 1px;
+  color: var(--fg);
+}
+
+.gene-detail-value a {
+  color: var(--fg);
+  text-decoration: underline;
+  transition: opacity 200ms;
+}
+
+.gene-detail-value a:hover {
+  opacity: 0.6;
+}
+
+/* Loading and error states */
+.loading,
+.error,
+.no-pan-gene {
+  text-align: center;
+  padding: 12px 8px;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--fg);
+}
+
+.gene-pan-section {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}

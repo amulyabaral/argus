@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gene Highlighter Settings</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="settings-container">
+    <div class="settings-header">
+      <div class="popup-branding">
+        <img src="argus_logo_transparent_new.png" alt="ARGus Logo" class="popup-logo">
+        <div class="branding-text">
+          <div class="popup-argus-text">ARGus</div>
+          <div class="tagline">The all-seeing eye for Antibiotic Resistance Genes.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="settings-content">
+      <!-- Global Toggle -->
+      <div class="setting-section">
+        <div class="setting-row">
+          <label for="global-toggle" class="setting-label">Enable Extension</label>
+          <button id="global-toggle" class="toggle-button" data-enabled="true">ON</button>
+        </div>
+      </div>
+
+      <!-- Current Site Toggle -->
+      <div class="setting-section">
+        <div class="setting-row">
+          <label class="setting-label">Current Site</label>
+          <div id="current-site" class="current-site-info"></div>
+        </div>
+        <button id="toggle-current-site" class="action-button">Disable on This Site</button>
+      </div>
+
+      <!-- Blocked Sites List -->
+      <div class="setting-section">
+        <h2>Blocked Sites</h2>
+        <div id="blocked-sites-list" class="blocked-sites-list"></div>
+      </div>
+
+      <!-- Add Custom Filter -->
+      <div class="setting-section">
+        <h2>Add Custom Filter</h2>
+        <div class="input-group">
+          <input type="text" id="custom-filter" class="filter-input" placeholder="example.com or *.example.com">
+          <button id="add-filter" class="action-button">Add Filter</button>
+        </div>
+        <div class="filter-help">
+          Supports wildcards: *.example.com matches all subdomains
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
